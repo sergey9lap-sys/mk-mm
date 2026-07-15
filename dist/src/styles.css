@@ -53,3 +53,8 @@
 /* Fine spacing corrections */
 @media(min-width:901px){.curriculum__list article:nth-child(even){padding-left:30px}}
 @media(max-width:600px){.hero{min-height:730px}.hero__grid{min-height:730px;padding-bottom:150px}.hero__proof{top:565px}}
+
+/* Staircase intro and compact small-screen portrait */
+.staircase__intro{max-width:760px;margin:30px 0 8px;color:#d5dfd7;font:18px/1.75 var(--sans)}
+@media(max-width:600px){.staircase__intro{margin-top:24px;font-size:15px;line-height:1.7}.staircase__intro br{display:none}}
+@media(max-width:420px){.hero h1{max-width:62%;font-size:29px}.hero__lead{max-width:59%;line-height:1.65}.hero__portrait{top:162px;right:-23%;width:82%;height:475px}}
