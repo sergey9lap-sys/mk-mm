@@ -55,3 +55,33 @@ cookie?.querySelectorAll("[data-cookie-accept]").forEach((button) => button.addE
   localStorage.setItem("rekurrent-cookie-consent", "accepted");
   cookie.hidden = true;
 }));
+
+const widgetModals = [...document.querySelectorAll("[data-widget-modal]")];
+let activeWidgetModal = null;
+let widgetTrigger = null;
+
+const closeWidgetModal = () => {
+  if (!activeWidgetModal) return;
+  activeWidgetModal.classList.remove("is-open");
+  activeWidgetModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("has-modal");
+  widgetTrigger?.focus({ preventScroll: true });
+  activeWidgetModal = null;
+};
+
+document.querySelectorAll("[data-widget-open]").forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    const modal = document.querySelector(`[data-widget-modal="${trigger.dataset.widgetOpen}"]`);
+    if (!modal) return;
+    event.preventDefault();
+    widgetTrigger = trigger;
+    activeWidgetModal = modal;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("has-modal");
+    modal.querySelector(".gc-popup__close")?.focus({ preventScroll: true });
+  });
+});
+
+widgetModals.forEach((modal) => modal.querySelectorAll("[data-widget-close]").forEach((button) => button.addEventListener("click", closeWidgetModal)));
+document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeWidgetModal(); });
