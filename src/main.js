@@ -41,12 +41,24 @@ if (slider) {
   const track = slider.querySelector(".slider__track");
   const slides = [...track.children];
   const count = slider.querySelector("[data-count]");
+  const progress = slider.querySelector("[data-progress]");
   let current = 0;
-  const render = () => { track.style.transform = `translateX(-${current * 100}%)`; count.textContent = `${String(current + 1).padStart(2,"0")} / ${String(slides.length).padStart(2,"0")}`; };
+  const render = () => {
+    track.style.transform = `translateX(-${current * 100}%)`;
+    count.textContent = `${String(current + 1).padStart(2,"0")} / ${String(slides.length).padStart(2,"0")}`;
+    if (progress) progress.style.transform = `scaleX(${(current + 1) / slides.length})`;
+  };
   const move = (step) => { current = (current + step + slides.length) % slides.length; render(); };
   slider.querySelector("[data-prev]").addEventListener("click", () => move(-1));
   slider.querySelector("[data-next]").addEventListener("click", () => move(1));
   slider.addEventListener("keydown", (event) => { if(event.key === "ArrowLeft") move(-1); if(event.key === "ArrowRight") move(1); });
+  let touchStart = 0;
+  slider.addEventListener("touchstart", (event) => { touchStart = event.changedTouches[0].clientX; }, { passive: true });
+  slider.addEventListener("touchend", (event) => {
+    const distance = event.changedTouches[0].clientX - touchStart;
+    if (Math.abs(distance) > 48) move(distance < 0 ? 1 : -1);
+  }, { passive: true });
+  render();
 }
 
 const cookie = document.querySelector("[data-cookie]");
