@@ -13,6 +13,10 @@
 @media(max-width:900px){.bonus-items{grid-template-columns:repeat(2,minmax(0,1fr))}.bonus-items>div{grid-template-columns:58px 1fr}.bonus-items img{width:58px;height:72px}}
 @media(max-width:600px){.bonus-items{grid-template-columns:1fr}.bonus-items>div{grid-template-columns:52px 1fr}.bonus-items img{width:52px;height:64px}}
 
+/* Tariff price hierarchy */
+.price{display:flex;flex-direction:column;align-items:flex-start;gap:3px}.price strong{order:1;margin:0}.price del{order:2;position:relative;display:inline-block;width:max-content;color:#b8c3ba;font:24px/1.2 var(--serif);text-decoration:none;opacity:.82}.price del:after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:2px;background:#c54b51;transform:rotate(-3deg);box-shadow:0 0 0 1px rgba(197,75,81,.15)}
+@media(max-width:600px){.price{margin:24px 0}.price del{font-size:21px}}
+
 /* Refinement pass: clearer rhythm and structured mobile composition */
 .problems article{padding:42px 28px 30px}.problems h3{margin-top:24px}.staircase__note{margin:44px 0 0 140px;max-width:none;padding:26px 32px;border:1px solid var(--line);border-left:3px solid var(--gold);background:rgba(4,27,20,.28)}
 .facts{counter-reset:fact}.facts span{position:relative;padding:17px 14px 17px 50px;counter-increment:fact}.facts span:before{content:"0" counter(fact);position:absolute;left:10px;top:19px;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.12em}
