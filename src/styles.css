@@ -17,6 +17,9 @@
 .price{display:flex;flex-direction:column;align-items:flex-start;gap:3px}.price strong{order:1;margin:0}.price del{order:2;position:relative;display:inline-block;width:max-content;color:#b8c3ba;font:24px/1.2 var(--serif);text-decoration:none;opacity:.82}.price del:after{content:"";position:absolute;left:-6px;right:-6px;top:52%;height:2px;background:#c54b51;transform:rotate(-3deg);box-shadow:0 0 0 1px rgba(197,75,81,.15)}
 @media(max-width:600px){.price{margin:24px 0}.price del{font-size:21px}}
 
+/* Tariff schedule */
+.tariff-card li.tariff-event{margin-bottom:6px;padding:13px 14px 13px 34px;border:1px solid rgba(215,181,97,.34);background:rgba(215,181,97,.07)}.tariff-card li.tariff-event:before{content:"◷";left:12px;top:14px}.tariff-event time,.tariff-event b{display:block}.tariff-event time{margin-bottom:5px;color:var(--gold2);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.tariff-event b{color:var(--ink);font-size:13px;line-height:1.45}
+
 /* Refinement pass: clearer rhythm and structured mobile composition */
 .problems article{padding:42px 28px 30px}.problems h3{margin-top:24px}.staircase__note{margin:44px 0 0 140px;max-width:none;padding:26px 32px;border:1px solid var(--line);border-left:3px solid var(--gold);background:rgba(4,27,20,.28)}
 .facts{counter-reset:fact}.facts span{position:relative;padding:17px 14px 17px 50px;counter-increment:fact}.facts span:before{content:"0" counter(fact);position:absolute;left:10px;top:19px;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.12em}
